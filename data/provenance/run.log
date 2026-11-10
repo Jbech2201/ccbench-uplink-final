@@ -1,0 +1,131 @@
+[2026-11-09T22:05:45Z] image: ccbench-remote:20261105T152436Z
+[2026-11-09T22:05:47Z] image identity matches on both hosts: layers=16105bbcee68ee78fdd20b20222bc94a9c243ff45d3c23de0fddf1d10677163d config=52633cc17b2be983b37cd746e20712529806ba65b214727029806eda7840504b
+[2026-11-09T22:05:47Z] disk here: 262G free
+[2026-11-09T22:05:47Z] path at start: pong from cbr2server (100.101.63.72) via 202.4.186.8:41641 in 69ms
+[2026-11-09T22:05:47Z] starting peer container on cbr2@100.101.63.72
+2026-11-09T22:05:54Z peer sshd procs: 1
+[2026-11-09T22:05:56Z] peer container up (--privileged --device /dev/net/tun), key installed for pantheon, sshd on 2222
+[2026-11-09T22:05:56Z] starting local container
+[2026-11-09T22:05:59Z] per-scheme setup done on both sides
+[2026-11-09T22:05:59Z] interfaces: not pinned; the tunnel follows the route to 100.101.63.72
+[2026-11-09T22:05:59Z] ROUND 01/20 uplink
+[2026-11-09T22:05:59Z] START uplink rr-01 (--sender local, -t 30 x 1)
+[2026-11-09T22:10:38Z] DONE  uplink rr-01  2026-11-09T22:05:59Z -> 2026-11-09T22:10:38Z
+[2026-11-09T22:10:38Z] path for uplink/rr-01: samples=55 distinct_routes=1 [ 202.4.186.8:41641 ]
+[2026-11-09T22:10:39Z] wrapper output for uplink/rr-01: local=9224B remote=470B
+[2026-11-09T22:10:39Z] disk left: 262G
+[2026-11-09T22:10:40Z] ROUND 02/20 uplink
+[2026-11-09T22:10:40Z] START uplink rr-02 (--sender local, -t 30 x 1)
+[2026-11-09T22:15:20Z] DONE  uplink rr-02  2026-11-09T22:10:40Z -> 2026-11-09T22:15:20Z
+[2026-11-09T22:15:20Z] path for uplink/rr-02: samples=55 distinct_routes=1 [ 202.4.186.8:41641 ]
+[2026-11-09T22:15:21Z] wrapper output for uplink/rr-02: local=9541B remote=470B
+[2026-11-09T22:15:21Z] disk left: 262G
+[2026-11-09T22:15:21Z] ROUND 03/20 uplink
+[2026-11-09T22:15:21Z] START uplink rr-03 (--sender local, -t 30 x 1)
+[2026-11-09T22:19:59Z] DONE  uplink rr-03  2026-11-09T22:15:21Z -> 2026-11-09T22:19:59Z
+[2026-11-09T22:19:59Z] path for uplink/rr-03: samples=55 distinct_routes=1 [ 202.4.186.8:41641 ]
+[2026-11-09T22:20:00Z] wrapper output for uplink/rr-03: local=9288B remote=470B
+[2026-11-09T22:20:00Z] disk left: 262G
+[2026-11-09T22:20:00Z] ROUND 04/20 uplink
+[2026-11-09T22:20:00Z] START uplink rr-04 (--sender local, -t 30 x 1)
+[2026-11-09T22:24:37Z] DONE  uplink rr-04  2026-11-09T22:20:00Z -> 2026-11-09T22:24:37Z
+[2026-11-09T22:24:37Z] path for uplink/rr-04: samples=55 distinct_routes=1 [ 202.4.186.8:41641 ]
+[2026-11-09T22:24:38Z] wrapper output for uplink/rr-04: local=9436B remote=470B
+[2026-11-09T22:24:38Z] disk left: 262G
+[2026-11-09T22:24:38Z] ROUND 05/20 uplink
+[2026-11-09T22:24:38Z] START uplink rr-05 (--sender local, -t 30 x 1)
+[2026-11-09T22:29:16Z] DONE  uplink rr-05  2026-11-09T22:24:38Z -> 2026-11-09T22:29:16Z
+[2026-11-09T22:29:16Z] path for uplink/rr-05: samples=54 distinct_routes=1 [ 202.4.186.8:41641 ]
+[2026-11-09T22:29:17Z] wrapper output for uplink/rr-05: local=9368B remote=474B
+[2026-11-09T22:29:17Z] disk left: 262G
+[2026-11-09T22:29:17Z] ROUND 06/20 uplink
+[2026-11-09T22:29:17Z] START uplink rr-06 (--sender local, -t 30 x 1)
+[2026-11-09T22:33:54Z] DONE  uplink rr-06  2026-11-09T22:29:17Z -> 2026-11-09T22:33:54Z
+[2026-11-09T22:33:54Z] path for uplink/rr-06: samples=55 distinct_routes=1 [ 202.4.186.8:41641 ]
+[2026-11-09T22:33:55Z] wrapper output for uplink/rr-06: local=9231B remote=474B
+[2026-11-09T22:33:55Z] disk left: 262G
+[2026-11-09T22:33:55Z] ROUND 07/20 uplink
+[2026-11-09T22:33:55Z] START uplink rr-07 (--sender local, -t 30 x 1)
+[2026-11-09T22:38:31Z] DONE  uplink rr-07  2026-11-09T22:33:55Z -> 2026-11-09T22:38:31Z
+[2026-11-09T22:38:31Z] path for uplink/rr-07: samples=55 distinct_routes=1 [ 202.4.186.8:41641 ]
+[2026-11-09T22:38:32Z] wrapper output for uplink/rr-07: local=9379B remote=474B
+[2026-11-09T22:38:32Z] disk left: 262G
+[2026-11-09T22:38:32Z] ROUND 08/20 uplink
+[2026-11-09T22:38:32Z] START uplink rr-08 (--sender local, -t 30 x 1)
+[2026-11-09T22:43:10Z] DONE  uplink rr-08  2026-11-09T22:38:32Z -> 2026-11-09T22:43:10Z
+[2026-11-09T22:43:10Z] path for uplink/rr-08: samples=55 distinct_routes=1 [ 202.4.186.8:41641 ]
+[2026-11-09T22:43:11Z] wrapper output for uplink/rr-08: local=9353B remote=474B
+[2026-11-09T22:43:11Z] disk left: 262G
+[2026-11-09T22:43:11Z] ROUND 09/20 uplink
+[2026-11-09T22:43:11Z] START uplink rr-09 (--sender local, -t 30 x 1)
+[2026-11-09T22:47:50Z] DONE  uplink rr-09  2026-11-09T22:43:11Z -> 2026-11-09T22:47:50Z
+[2026-11-09T22:47:50Z] path for uplink/rr-09: samples=54 distinct_routes=1 [ 202.4.186.8:41641 ]
+[2026-11-09T22:47:51Z] wrapper output for uplink/rr-09: local=9445B remote=474B
+[2026-11-09T22:47:52Z] disk left: 262G
+[2026-11-09T22:47:52Z] ROUND 10/20 uplink
+[2026-11-09T22:47:52Z] START uplink rr-10 (--sender local, -t 30 x 1)
+[2026-11-09T22:52:31Z] DONE  uplink rr-10  2026-11-09T22:47:52Z -> 2026-11-09T22:52:31Z
+[2026-11-09T22:52:31Z] path for uplink/rr-10: samples=55 distinct_routes=1 [ 202.4.186.8:41641 ]
+[2026-11-09T22:52:32Z] wrapper output for uplink/rr-10: local=9213B remote=474B
+[2026-11-09T22:52:32Z] disk left: 262G
+[2026-11-09T22:52:32Z] ROUND 11/20 uplink
+[2026-11-09T22:52:32Z] START uplink rr-11 (--sender local, -t 30 x 1)
+[2026-11-09T22:57:09Z] DONE  uplink rr-11  2026-11-09T22:52:32Z -> 2026-11-09T22:57:09Z
+[2026-11-09T22:57:09Z] path for uplink/rr-11: samples=55 distinct_routes=1 [ 202.4.186.8:41641 ]
+[2026-11-09T22:57:10Z] wrapper output for uplink/rr-11: local=9557B remote=474B
+[2026-11-09T22:57:10Z] disk left: 262G
+[2026-11-09T22:57:10Z] ROUND 12/20 uplink
+[2026-11-09T22:57:10Z] START uplink rr-12 (--sender local, -t 30 x 1)
+[2026-11-09T23:01:48Z] DONE  uplink rr-12  2026-11-09T22:57:10Z -> 2026-11-09T23:01:48Z
+[2026-11-09T23:01:48Z] path for uplink/rr-12: samples=55 distinct_routes=1 [ 202.4.186.8:41641 ]
+[2026-11-09T23:01:49Z] wrapper output for uplink/rr-12: local=9213B remote=474B
+[2026-11-09T23:01:49Z] disk left: 262G
+[2026-11-09T23:01:49Z] ROUND 13/20 uplink
+[2026-11-09T23:01:49Z] START uplink rr-13 (--sender local, -t 30 x 1)
+[2026-11-09T23:06:28Z] DONE  uplink rr-13  2026-11-09T23:01:49Z -> 2026-11-09T23:06:28Z
+[2026-11-09T23:06:28Z] path for uplink/rr-13: samples=55 distinct_routes=1 [ 202.4.186.8:41641 ]
+[2026-11-09T23:06:29Z] wrapper output for uplink/rr-13: local=9293B remote=474B
+[2026-11-09T23:06:29Z] disk left: 261G
+[2026-11-09T23:06:29Z] ROUND 14/20 uplink
+[2026-11-09T23:06:29Z] START uplink rr-14 (--sender local, -t 30 x 1)
+[2026-11-09T23:11:08Z] DONE  uplink rr-14  2026-11-09T23:06:29Z -> 2026-11-09T23:11:08Z
+[2026-11-09T23:11:08Z] path for uplink/rr-14: samples=55 distinct_routes=1 [ 202.4.186.8:41641 ]
+[2026-11-09T23:11:10Z] wrapper output for uplink/rr-14: local=9417B remote=474B
+[2026-11-09T23:11:10Z] disk left: 261G
+[2026-11-09T23:11:10Z] ROUND 15/20 uplink
+[2026-11-09T23:11:10Z] START uplink rr-15 (--sender local, -t 30 x 1)
+[2026-11-09T23:15:50Z] DONE  uplink rr-15  2026-11-09T23:11:10Z -> 2026-11-09T23:15:50Z
+[2026-11-09T23:15:50Z] path for uplink/rr-15: samples=55 distinct_routes=1 [ 202.4.186.8:41641 ]
+[2026-11-09T23:15:51Z] wrapper output for uplink/rr-15: local=9469B remote=474B
+[2026-11-09T23:15:51Z] disk left: 261G
+[2026-11-09T23:15:51Z] ROUND 16/20 uplink
+[2026-11-09T23:15:51Z] START uplink rr-16 (--sender local, -t 30 x 1)
+[2026-11-09T23:20:29Z] DONE  uplink rr-16  2026-11-09T23:15:51Z -> 2026-11-09T23:20:29Z
+[2026-11-09T23:20:29Z] path for uplink/rr-16: samples=55 distinct_routes=1 [ 202.4.186.8:41641 ]
+[2026-11-09T23:20:30Z] wrapper output for uplink/rr-16: local=9421B remote=474B
+[2026-11-09T23:20:30Z] disk left: 261G
+[2026-11-09T23:20:30Z] ROUND 17/20 uplink
+[2026-11-09T23:20:30Z] START uplink rr-17 (--sender local, -t 30 x 1)
+[2026-11-09T23:25:08Z] DONE  uplink rr-17  2026-11-09T23:20:30Z -> 2026-11-09T23:25:08Z
+[2026-11-09T23:25:08Z] path for uplink/rr-17: samples=55 distinct_routes=1 [ 202.4.186.8:41641 ]
+[2026-11-09T23:25:09Z] wrapper output for uplink/rr-17: local=9434B remote=474B
+[2026-11-09T23:25:09Z] disk left: 261G
+[2026-11-09T23:25:10Z] ROUND 18/20 uplink
+[2026-11-09T23:25:10Z] START uplink rr-18 (--sender local, -t 30 x 1)
+[2026-11-09T23:29:46Z] DONE  uplink rr-18  2026-11-09T23:25:10Z -> 2026-11-09T23:29:46Z
+[2026-11-09T23:29:46Z] path for uplink/rr-18: samples=55 distinct_routes=1 [ 202.4.186.8:41641 ]
+[2026-11-09T23:29:47Z] wrapper output for uplink/rr-18: local=9330B remote=474B
+[2026-11-09T23:29:47Z] disk left: 261G
+[2026-11-09T23:29:47Z] ROUND 19/20 uplink
+[2026-11-09T23:29:47Z] START uplink rr-19 (--sender local, -t 30 x 1)
+[2026-11-09T23:34:23Z] DONE  uplink rr-19  2026-11-09T23:29:47Z -> 2026-11-09T23:34:23Z
+[2026-11-09T23:34:23Z] path for uplink/rr-19: samples=55 distinct_routes=1 [ 202.4.186.8:41641 ]
+[2026-11-09T23:34:24Z] wrapper output for uplink/rr-19: local=9482B remote=474B
+[2026-11-09T23:34:24Z] disk left: 261G
+[2026-11-09T23:34:25Z] ROUND 20/20 uplink
+[2026-11-09T23:34:25Z] START uplink rr-20 (--sender local, -t 30 x 1)
+[2026-11-09T23:39:02Z] DONE  uplink rr-20  2026-11-09T23:34:25Z -> 2026-11-09T23:39:02Z
+[2026-11-09T23:39:02Z] path for uplink/rr-20: samples=55 distinct_routes=1 [ 202.4.186.8:41641 ]
+[2026-11-09T23:39:03Z] wrapper output for uplink/rr-20: local=9389B remote=474B
+[2026-11-09T23:39:03Z] disk left: 261G
+[2026-11-09T23:39:03Z] matrix finished; now run scripts/12_collect.sh

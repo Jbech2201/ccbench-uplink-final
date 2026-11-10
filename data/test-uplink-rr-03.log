@@ -1,0 +1,167 @@
+$ /pantheon/src/experiments/git_summary.sh
+$ ssh pantheon@100.101.63.72 "cd /pantheon; /pantheon/src/experiments/git_summary.sh"
+Testing scheme pcc for experiment run 1/1...
+$ /pantheon/src/wrappers/pcc.py run_first
+$ ntpdate -t 5 -quv 202.65.114.202
+ 9 Nov 22:15:22 ntpdate[760]: ntpdate 4.2.8p10@1.3728-o (1)
+server 202.65.114.202, stratum 2, offset 0.000699, delay 0.06613
+ 9 Nov 22:15:38 ntpdate[760]: adjust time server 202.65.114.202 offset 0.000699 sec
+$ ssh pantheon@100.101.63.72 ntpdate -t 5 -quv 202.65.114.202
+ 9 Nov 22:15:38 ntpdate[629]: ntpdate 4.2.8p10@1.3728-o (1)
+server 202.65.114.202, stratum 2, offset -0.000764, delay 0.06386
+ 9 Nov 22:15:54 ntpdate[629]: adjust time server 202.65.114.202 offset -0.000764 sec
+[tunnel server manager (tsm)] $ ssh pantheon@100.101.63.72 python /pantheon/src/experiments/tunnel_manager.py
+tunnel manager is running
+[tunnel client manager (tcm)] $ python /pantheon/src/experiments/tunnel_manager.py
+tunnel manager is running
+prompt [tcm]
+prompt [tsm]
+[tsm] tunnel 1 mm-tunnelserver --ingress-log=/pantheon/tmp/pcc_datalink_run1_flow1_uid05e703f0-2592-4d5b-98a6-b023d84d8e28.log.ingress --egress-log=/pantheon/tmp/pcc_acklink_run1_flow1_uid05e703f0-2592-4d5b-98a6-b023d84d8e28.log.egress
+[tsm] tunnel 1 readline
+[tcm] tunnel 1 mm-tunnelclient 100.101.63.72 38649 100.64.0.2 100.64.0.1 --ingress-log=/pantheon/tmp/pcc_acklink_run1_flow1_uid05e703f0-2592-4d5b-98a6-b023d84d8e28.log.ingress --egress-log=/pantheon/tmp/pcc_datalink_run1_flow1_uid05e703f0-2592-4d5b-98a6-b023d84d8e28.log.egress
+[tcm] tunnel 1 readline
+Tunnelclient listening for server on port 41865
+Tunnel is connected
+[tsm] tunnel 1 python /pantheon/src/wrappers/pcc.py receiver 33293
+[tcm] tunnel 1 python /pantheon/src/wrappers/pcc.py sender 100.64.0.1 33293
+[tcm] halt
+$ scp -C pantheon@100.101.63.72:/pantheon/tmp/pcc_datalink_run1_flow1_uid05e703f0-2592-4d5b-98a6-b023d84d8e28.log.ingress /pantheon/tmp/pcc_datalink_run1_flow1_uid05e703f0-2592-4d5b-98a6-b023d84d8e28.log.ingress
+kill_proc_group: killed process group with pgid 764
+[tsm] halt
+kill_proc_group: killed process group with pgid 634
+$ scp -C pantheon@100.101.63.72:/pantheon/tmp/pcc_acklink_run1_flow1_uid05e703f0-2592-4d5b-98a6-b023d84d8e28.log.egress /pantheon/tmp/pcc_acklink_run1_flow1_uid05e703f0-2592-4d5b-98a6-b023d84d8e28.log.egress
+$ /pantheon/src/experiments/merge_tunnel_logs.py single -i /pantheon/tmp/pcc_datalink_run1_flow1_uid05e703f0-2592-4d5b-98a6-b023d84d8e28.log.ingress -e /pantheon/tmp/pcc_datalink_run1_flow1_uid05e703f0-2592-4d5b-98a6-b023d84d8e28.log.egress -o /pantheon/tmp/pcc_datalink_run1_flow1_uid2a2e1a31-6f37-48a8-b4d5-3fca75e6eeb8.log.merged -i-clock-offset -0.764 -e-clock-offset 0.699
+$ /pantheon/src/experiments/merge_tunnel_logs.py single -i /pantheon/tmp/pcc_acklink_run1_flow1_uid05e703f0-2592-4d5b-98a6-b023d84d8e28.log.ingress -e /pantheon/tmp/pcc_acklink_run1_flow1_uid05e703f0-2592-4d5b-98a6-b023d84d8e28.log.egress -o /pantheon/tmp/pcc_acklink_run1_flow1_uid2a2e1a31-6f37-48a8-b4d5-3fca75e6eeb8.log.merged -i-clock-offset 0.699 -e-clock-offset -0.764
+$ /pantheon/src/experiments/merge_tunnel_logs.py multiple -o /data/uplink/rr-03/pcc_datalink_run1.log /pantheon/tmp/pcc_datalink_run1_flow1_uid2a2e1a31-6f37-48a8-b4d5-3fca75e6eeb8.log.merged
+$ /pantheon/src/experiments/merge_tunnel_logs.py multiple -o /data/uplink/rr-03/pcc_acklink_run1.log /pantheon/tmp/pcc_acklink_run1_flow1_uid2a2e1a31-6f37-48a8-b4d5-3fca75e6eeb8.log.merged
+kill_proc_group: killed process group with pgid 762
+kill_proc_group: killed process group with pgid 763
+Start at: 2026-11-09 22:15:58
+End at: 2026-11-09 22:16:28
+Local clock offset: 0.699 ms
+Remote clock offset: -0.764 ms
+Done testing pcc
+Testing scheme indigo for experiment run 1/1...
+$ /pantheon/src/wrappers/indigo.py run_first
+$ ntpdate -t 5 -quv 202.65.114.202
+ 9 Nov 22:16:32 ntpdate[784]: ntpdate 4.2.8p10@1.3728-o (1)
+server 202.65.114.202, stratum 2, offset 0.001817, delay 0.06374
+ 9 Nov 22:16:47 ntpdate[784]: adjust time server 202.65.114.202 offset 0.001817 sec
+$ ssh pantheon@100.101.63.72 ntpdate -t 5 -quv 202.65.114.202
+ 9 Nov 22:16:48 ntpdate[655]: ntpdate 4.2.8p10@1.3728-o (1)
+server 202.65.114.202, stratum 2, offset -0.001548, delay 0.06613
+ 9 Nov 22:17:03 ntpdate[655]: adjust time server 202.65.114.202 offset -0.001548 sec
+[tunnel server manager (tsm)] $ ssh pantheon@100.101.63.72 python /pantheon/src/experiments/tunnel_manager.py
+tunnel manager is running
+[tunnel client manager (tcm)] $ python /pantheon/src/experiments/tunnel_manager.py
+tunnel manager is running
+prompt [tcm]
+prompt [tsm]
+[tsm] tunnel 1 mm-tunnelserver --ingress-log=/pantheon/tmp/indigo_datalink_run1_flow1_uid76bae822-cb7d-4af6-8bdd-41c8eea971c0.log.ingress --egress-log=/pantheon/tmp/indigo_acklink_run1_flow1_uid76bae822-cb7d-4af6-8bdd-41c8eea971c0.log.egress
+[tsm] tunnel 1 readline
+[tcm] tunnel 1 mm-tunnelclient 100.101.63.72 42769 100.64.0.2 100.64.0.1 --ingress-log=/pantheon/tmp/indigo_acklink_run1_flow1_uid76bae822-cb7d-4af6-8bdd-41c8eea971c0.log.ingress --egress-log=/pantheon/tmp/indigo_datalink_run1_flow1_uid76bae822-cb7d-4af6-8bdd-41c8eea971c0.log.egress
+[tcm] tunnel 1 readline
+Tunnelclient listening for server on port 34142
+Tunnel is connected
+[tcm] tunnel 1 python /pantheon/src/wrappers/indigo.py sender 37303
+[tsm] tunnel 1 python /pantheon/src/wrappers/indigo.py receiver 100.64.0.2 37303
+[tcm] halt
+$ scp -C pantheon@100.101.63.72:/pantheon/tmp/indigo_datalink_run1_flow1_uid76bae822-cb7d-4af6-8bdd-41c8eea971c0.log.ingress /pantheon/tmp/indigo_datalink_run1_flow1_uid76bae822-cb7d-4af6-8bdd-41c8eea971c0.log.ingress
+kill_proc_group: killed process group with pgid 788
+[tsm] halt
+kill_proc_group: killed process group with pgid 660
+$ scp -C pantheon@100.101.63.72:/pantheon/tmp/indigo_acklink_run1_flow1_uid76bae822-cb7d-4af6-8bdd-41c8eea971c0.log.egress /pantheon/tmp/indigo_acklink_run1_flow1_uid76bae822-cb7d-4af6-8bdd-41c8eea971c0.log.egress
+$ /pantheon/src/experiments/merge_tunnel_logs.py single -i /pantheon/tmp/indigo_datalink_run1_flow1_uid76bae822-cb7d-4af6-8bdd-41c8eea971c0.log.ingress -e /pantheon/tmp/indigo_datalink_run1_flow1_uid76bae822-cb7d-4af6-8bdd-41c8eea971c0.log.egress -o /pantheon/tmp/indigo_datalink_run1_flow1_uidcfc94c9f-e113-4de1-866e-8ee9ac89d500.log.merged -i-clock-offset -1.548 -e-clock-offset 1.817
+$ /pantheon/src/experiments/merge_tunnel_logs.py single -i /pantheon/tmp/indigo_acklink_run1_flow1_uid76bae822-cb7d-4af6-8bdd-41c8eea971c0.log.ingress -e /pantheon/tmp/indigo_acklink_run1_flow1_uid76bae822-cb7d-4af6-8bdd-41c8eea971c0.log.egress -o /pantheon/tmp/indigo_acklink_run1_flow1_uidcfc94c9f-e113-4de1-866e-8ee9ac89d500.log.merged -i-clock-offset 1.817 -e-clock-offset -1.548
+$ /pantheon/src/experiments/merge_tunnel_logs.py multiple -o /data/uplink/rr-03/indigo_datalink_run1.log /pantheon/tmp/indigo_datalink_run1_flow1_uidcfc94c9f-e113-4de1-866e-8ee9ac89d500.log.merged
+$ /pantheon/src/experiments/merge_tunnel_logs.py multiple -o /data/uplink/rr-03/indigo_acklink_run1.log /pantheon/tmp/indigo_acklink_run1_flow1_uidcfc94c9f-e113-4de1-866e-8ee9ac89d500.log.merged
+kill_proc_group: killed process group with pgid 786
+kill_proc_group: killed process group with pgid 787
+Start at: 2026-11-09 22:17:07
+End at: 2026-11-09 22:17:37
+Local clock offset: 1.817 ms
+Remote clock offset: -1.548 ms
+Done testing indigo
+Testing scheme vivace for experiment run 1/1...
+$ /pantheon/src/wrappers/vivace.py run_first
+$ ntpdate -t 5 -quv 202.65.114.202
+ 9 Nov 22:17:41 ntpdate[881]: ntpdate 4.2.8p10@1.3728-o (1)
+server 202.65.114.202, stratum 2, offset 0.000784, delay 0.06606
+ 9 Nov 22:17:56 ntpdate[881]: adjust time server 202.65.114.202 offset 0.000784 sec
+$ ssh pantheon@100.101.63.72 ntpdate -t 5 -quv 202.65.114.202
+ 9 Nov 22:17:57 ntpdate[699]: ntpdate 4.2.8p10@1.3728-o (1)
+server 202.65.114.202, stratum 2, offset -0.000138, delay 0.06398
+ 9 Nov 22:18:12 ntpdate[699]: adjust time server 202.65.114.202 offset -0.000138 sec
+[tunnel server manager (tsm)] $ ssh pantheon@100.101.63.72 python /pantheon/src/experiments/tunnel_manager.py
+tunnel manager is running
+[tunnel client manager (tcm)] $ python /pantheon/src/experiments/tunnel_manager.py
+tunnel manager is running
+prompt [tcm]
+prompt [tsm]
+[tsm] tunnel 1 mm-tunnelserver --ingress-log=/pantheon/tmp/vivace_datalink_run1_flow1_uidd09e161e-1b1a-47c1-8db8-74c82252e925.log.ingress --egress-log=/pantheon/tmp/vivace_acklink_run1_flow1_uidd09e161e-1b1a-47c1-8db8-74c82252e925.log.egress
+[tsm] tunnel 1 readline
+[tcm] tunnel 1 mm-tunnelclient 100.101.63.72 46645 100.64.0.2 100.64.0.1 --ingress-log=/pantheon/tmp/vivace_acklink_run1_flow1_uidd09e161e-1b1a-47c1-8db8-74c82252e925.log.ingress --egress-log=/pantheon/tmp/vivace_datalink_run1_flow1_uidd09e161e-1b1a-47c1-8db8-74c82252e925.log.egress
+[tcm] tunnel 1 readline
+Tunnelclient listening for server on port 52498
+Tunnel is connected
+[tsm] tunnel 1 python /pantheon/src/wrappers/vivace.py receiver 36791
+[tcm] tunnel 1 python /pantheon/src/wrappers/vivace.py sender 100.64.0.1 36791
+[tcm] halt
+$ scp -C pantheon@100.101.63.72:/pantheon/tmp/vivace_datalink_run1_flow1_uidd09e161e-1b1a-47c1-8db8-74c82252e925.log.ingress /pantheon/tmp/vivace_datalink_run1_flow1_uidd09e161e-1b1a-47c1-8db8-74c82252e925.log.ingress
+kill_proc_group: killed process group with pgid 885
+[tsm] halt
+kill_proc_group: killed process group with pgid 704
+$ scp -C pantheon@100.101.63.72:/pantheon/tmp/vivace_acklink_run1_flow1_uidd09e161e-1b1a-47c1-8db8-74c82252e925.log.egress /pantheon/tmp/vivace_acklink_run1_flow1_uidd09e161e-1b1a-47c1-8db8-74c82252e925.log.egress
+$ /pantheon/src/experiments/merge_tunnel_logs.py single -i /pantheon/tmp/vivace_datalink_run1_flow1_uidd09e161e-1b1a-47c1-8db8-74c82252e925.log.ingress -e /pantheon/tmp/vivace_datalink_run1_flow1_uidd09e161e-1b1a-47c1-8db8-74c82252e925.log.egress -o /pantheon/tmp/vivace_datalink_run1_flow1_uid91f0ee28-6901-49af-9672-4c268518cfcb.log.merged -i-clock-offset -0.138 -e-clock-offset 0.784
+$ /pantheon/src/experiments/merge_tunnel_logs.py single -i /pantheon/tmp/vivace_acklink_run1_flow1_uidd09e161e-1b1a-47c1-8db8-74c82252e925.log.ingress -e /pantheon/tmp/vivace_acklink_run1_flow1_uidd09e161e-1b1a-47c1-8db8-74c82252e925.log.egress -o /pantheon/tmp/vivace_acklink_run1_flow1_uid91f0ee28-6901-49af-9672-4c268518cfcb.log.merged -i-clock-offset 0.784 -e-clock-offset -0.138
+$ /pantheon/src/experiments/merge_tunnel_logs.py multiple -o /data/uplink/rr-03/vivace_datalink_run1.log /pantheon/tmp/vivace_datalink_run1_flow1_uid91f0ee28-6901-49af-9672-4c268518cfcb.log.merged
+$ /pantheon/src/experiments/merge_tunnel_logs.py multiple -o /data/uplink/rr-03/vivace_acklink_run1.log /pantheon/tmp/vivace_acklink_run1_flow1_uid91f0ee28-6901-49af-9672-4c268518cfcb.log.merged
+kill_proc_group: killed process group with pgid 883
+kill_proc_group: killed process group with pgid 884
+Start at: 2026-11-09 22:18:16
+End at: 2026-11-09 22:18:46
+Local clock offset: 0.784 ms
+Remote clock offset: -0.138 ms
+Done testing vivace
+Testing scheme taova for experiment run 1/1...
+$ /pantheon/src/wrappers/taova.py run_first
+$ ntpdate -t 5 -quv 202.65.114.202
+ 9 Nov 22:18:50 ntpdate[905]: ntpdate 4.2.8p10@1.3728-o (1)
+server 202.65.114.202, stratum 2, offset 0.001881, delay 0.06375
+ 9 Nov 22:19:05 ntpdate[905]: adjust time server 202.65.114.202 offset 0.001881 sec
+$ ssh pantheon@100.101.63.72 ntpdate -t 5 -quv 202.65.114.202
+ 9 Nov 22:19:06 ntpdate[725]: ntpdate 4.2.8p10@1.3728-o (1)
+server 202.65.114.202, stratum 2, offset -0.000000, delay 0.06422
+ 9 Nov 22:19:21 ntpdate[725]: adjust time server 202.65.114.202 offset -0.000000 sec
+[tunnel server manager (tsm)] $ ssh pantheon@100.101.63.72 python /pantheon/src/experiments/tunnel_manager.py
+tunnel manager is running
+[tunnel client manager (tcm)] $ python /pantheon/src/experiments/tunnel_manager.py
+tunnel manager is running
+prompt [tcm]
+prompt [tsm]
+[tsm] tunnel 1 mm-tunnelserver --ingress-log=/pantheon/tmp/taova_datalink_run1_flow1_uida8eb806a-9a64-4a9c-ae8b-b0770b856da5.log.ingress --egress-log=/pantheon/tmp/taova_acklink_run1_flow1_uida8eb806a-9a64-4a9c-ae8b-b0770b856da5.log.egress
+[tsm] tunnel 1 readline
+[tcm] tunnel 1 mm-tunnelclient 100.101.63.72 54371 100.64.0.2 100.64.0.1 --ingress-log=/pantheon/tmp/taova_acklink_run1_flow1_uida8eb806a-9a64-4a9c-ae8b-b0770b856da5.log.ingress --egress-log=/pantheon/tmp/taova_datalink_run1_flow1_uida8eb806a-9a64-4a9c-ae8b-b0770b856da5.log.egress
+[tcm] tunnel 1 readline
+Tunnelclient listening for server on port 48913
+Tunnel is connected
+[tsm] tunnel 1 python /pantheon/src/wrappers/taova.py receiver 35479
+[tcm] tunnel 1 python /pantheon/src/wrappers/taova.py sender 100.64.0.1 35479
+[tcm] halt
+kill_proc_group: killed process group with pgid 909
+$ scp -C pantheon@100.101.63.72:/pantheon/tmp/taova_datalink_run1_flow1_uida8eb806a-9a64-4a9c-ae8b-b0770b856da5.log.ingress /pantheon/tmp/taova_datalink_run1_flow1_uida8eb806a-9a64-4a9c-ae8b-b0770b856da5.log.ingress
+[tsm] halt
+kill_proc_group: killed process group with pgid 730
+$ scp -C pantheon@100.101.63.72:/pantheon/tmp/taova_acklink_run1_flow1_uida8eb806a-9a64-4a9c-ae8b-b0770b856da5.log.egress /pantheon/tmp/taova_acklink_run1_flow1_uida8eb806a-9a64-4a9c-ae8b-b0770b856da5.log.egress
+$ /pantheon/src/experiments/merge_tunnel_logs.py single -i /pantheon/tmp/taova_datalink_run1_flow1_uida8eb806a-9a64-4a9c-ae8b-b0770b856da5.log.ingress -e /pantheon/tmp/taova_datalink_run1_flow1_uida8eb806a-9a64-4a9c-ae8b-b0770b856da5.log.egress -o /pantheon/tmp/taova_datalink_run1_flow1_uid50d842b0-00e8-4d7d-bf9d-ec6bcd3103cf.log.merged -i-clock-offset -0.0 -e-clock-offset 1.881
+$ /pantheon/src/experiments/merge_tunnel_logs.py single -i /pantheon/tmp/taova_acklink_run1_flow1_uida8eb806a-9a64-4a9c-ae8b-b0770b856da5.log.ingress -e /pantheon/tmp/taova_acklink_run1_flow1_uida8eb806a-9a64-4a9c-ae8b-b0770b856da5.log.egress -o /pantheon/tmp/taova_acklink_run1_flow1_uid50d842b0-00e8-4d7d-bf9d-ec6bcd3103cf.log.merged -i-clock-offset 1.881 -e-clock-offset -0.0
+$ /pantheon/src/experiments/merge_tunnel_logs.py multiple -o /data/uplink/rr-03/taova_datalink_run1.log /pantheon/tmp/taova_datalink_run1_flow1_uid50d842b0-00e8-4d7d-bf9d-ec6bcd3103cf.log.merged
+$ /pantheon/src/experiments/merge_tunnel_logs.py multiple -o /data/uplink/rr-03/taova_acklink_run1.log /pantheon/tmp/taova_acklink_run1_flow1_uid50d842b0-00e8-4d7d-bf9d-ec6bcd3103cf.log.merged
+kill_proc_group: killed process group with pgid 907
+kill_proc_group: killed process group with pgid 908
+Start at: 2026-11-09 22:19:25
+End at: 2026-11-09 22:19:55
+Local clock offset: 1.881 ms
+Remote clock offset: -0.0 ms
+Done testing taova
+All tests done!
